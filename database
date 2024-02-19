@@ -1,0 +1,27 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100),
+    password VARCHAR(100),
+    email VARCHAR(100)
+);
+INSERT INTO users (username, password, email)
+VALUES ('mohammed_khaled', '123', 'mohammedkhaled@gmail.com'),
+('khairy_mahgoub', '1234', 'khairymahgoub@gmail.com'),
+('mohammed_hassan', '12345', 'mohammedhassan@gmail.com');
+
+CREATE TABLE components (
+    id SERIAL PRIMARY KEY,
+    component_name VARCHAR(100),
+    price NUMERIC,
+    link VARCHAR(255)
+);
+
+INSERT INTO components (component_name, price, link) VALUES
+('Arduino Uno R3', 350.00, 'https://microohm-eg.com/ar/product/arduino-uno-r3-ch340g-atmega328p-development-board-compatible-with-cable/'),
+('soil PH sensor', 4900.00, 'https://store.fut-electronics.com/collections/soil/products/soil-ph-sensor'),
+('soil NPK sensor', 5500.00, 'https://store.fut-electronics.com/collections/soil/products/soil-npk-nitrogen-phosphorus-potassium-nutrient-sensor'),
+('water flow sensor', 225.00, 'https://ram-e-shop.com/product/water-flow-sensor-yfs401/'),
+('EC sensor', 5500.00, 'https://store.fut-electronics.com/products/soil-ec-moisture-salinity-temperature-sensor-rs-485-industrial-standard-ip68?_pos=1&_sid=181630003&_ss=r'),
+('Relay module', 105.00, 'https://store.fut-electronics.com/products/relay-module-for-arduino-4-channels-5v?_pos=5&_sid=c28f4ab99&_ss=r'),
+('bluetooth module', 240.00, 'https://store.fut-electronics.com/products/serial-bluetooth-module-master-slave?_pos=1&_sid=952fe182f&_ss=r'),
+('SD card 8 GB', 300.00, 'https://www.jumia.com.eg/ar/generic-sandisk-c4-memory-card-8gb-micro-sd-tf-card-27032093.html');
