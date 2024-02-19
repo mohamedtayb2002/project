@@ -25,3 +25,80 @@ INSERT INTO components (component_name, price, link) VALUES
 ('Relay module', 105.00, 'https://store.fut-electronics.com/products/relay-module-for-arduino-4-channels-5v?_pos=5&_sid=c28f4ab99&_ss=r'),
 ('bluetooth module', 240.00, 'https://store.fut-electronics.com/products/serial-bluetooth-module-master-slave?_pos=1&_sid=952fe182f&_ss=r'),
 ('SD card 8 GB', 300.00, 'https://www.jumia.com.eg/ar/generic-sandisk-c4-memory-card-8gb-micro-sd-tf-card-27032093.html');
+
+CREATE TABLE crops (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    type VARCHAR(100),
+    optimal_temperature DECIMAL,
+    optimal_humidity DECIMAL
+);
+INSERT INTO crops (name, type, optimal_temperature, optimal_humidity)
+VALUES
+    ('Wheat', 'Grain', 20.0, 70.0),
+    ('Corn', 'Grain', 25.0, 60.0),
+    ('Rice', 'Grain', 30.0, 80.0);
+
+CREATE TABLE equipment (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    type VARCHAR(100),
+    condition VARCHAR(100),
+    farm_id INTEGER REFERENCES farms(id)
+);
+INSERT INTO equipment (name, type, condition, farm_id)
+VALUES
+    ('Tractor A', 'Tractor', 'Good', 1),
+    ('Plow B', 'Plow', 'Fair', 2),
+    ('Combine C', 'Combine', 'Excellent', 3);
+
+CREATE TABLE farms (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    location VARCHAR(100),
+    crop VARCHAR(100),
+    size_ha DECIMAL,
+    establishment_date DATE,
+    owner VARCHAR(100)
+);
+INSERT INTO farms (name, location, crop, size_ha, establishment_date, owner)
+VALUES
+    ('Farm A', 'Location A', 'Wheat', 50.5, '2020-01-01', 'mohammed khaled'),
+    ('Farm B', 'Location B', 'Corn', 75.2, '2018-05-15', 'mohammed mostafa'),
+    ('Farm C', 'Location C', 'Rice', 40.8, '2019-09-20', 'khairy mahgoub');
+
+CREATE TABLE weather (
+    id SERIAL PRIMARY KEY,
+    date DATE,
+    temperature DECIMAL,
+    humidity DECIMAL,
+    rainfall DECIMAL
+); 
+INSERT INTO weather (date, temperature, humidity, rainfall)
+VALUES
+    ('2024-02-01', 25.0, 65.0, 5.2),
+    ('2024-02-02', 23.0, 70.0, 3.5),
+    ('2024-02-03', 28.0, 60.0, 7.8);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
